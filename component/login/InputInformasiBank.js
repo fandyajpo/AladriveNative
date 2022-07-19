@@ -1,5 +1,5 @@
 import React from "react";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
+// import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { View, Text, ScrollView, TextInput, Pressable } from "react-native";
 import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";
@@ -67,7 +67,7 @@ const InputInformasiBank = ({ componentId }) => {
           />
         </View>
         <View style={tw`p-2`}>
-          <BouncyCheckbox
+          {/* <BouncyCheckbox
             size={25}
             fillColor="blue"
             unfillColor="#FFFFFF"
@@ -76,7 +76,7 @@ const InputInformasiBank = ({ componentId }) => {
             textStyle={{ fontFamily: "JosefinSans-Regular" }}
             isChecked={true}
             useNativeDriver={true}
-          />
+          /> */}
         </View>
       </ScrollView>
     </View>
