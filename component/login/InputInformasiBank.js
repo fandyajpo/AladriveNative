@@ -1,6 +1,4 @@
 import React from "react";
-import { Checkbox } from "react-native-paper";
-
 import { View, Text, ScrollView, TextInput, Pressable } from "react-native";
 import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";
@@ -68,14 +66,7 @@ const InputInformasiBank = ({ componentId }) => {
             style={tw`bg-mgray border border-gray-300 rounded-md h-10 px-2 my-2`}
           />
         </View>
-        <View style={tw`p-2`}>
-          <Checkbox
-            status={checked ? "checked" : "unchecked"}
-            onPress={() => {
-              setChecked(!checked);
-            }}
-          />
-        </View>
+        <View style={tw`p-2`}></View>
       </ScrollView>
     </View>
   );
