@@ -41,9 +41,6 @@ import UpdateOperasionalScreen from "./screens/Profile/UpdateJamOperasi";
 import UpdateGaleryScreen from "./screens/Profile/UpdateGalery";
 import TipeServisDanTipeBayarScreen from "./screens/Profile/TipeServisDanTipeBayar";
 
-//REGISTER SCREEN
-import RegisterPage from "./screens/Register";
-
 //AUTH GROUP SCREEN
 import OtpScreen from "./screens/Auth/Otp";
 import ConfirmPinScreen from "./screens/Auth/ConfirmPin";
@@ -86,17 +83,6 @@ Navigation.registerComponent(
       </SheetProvider>
     ),
   () => OtpScreen
-);
-
-Navigation.registerComponent(
-  "Register",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <RegisterPage {...props} />
-      </GlobalProvider>
-    ),
-  () => RegisterPage
 );
 
 Navigation.registerComponent(
@@ -512,18 +498,6 @@ const enterApp = {
   root: {
     stack: {
       children: [
-        {
-          component: {
-            name: "Register",
-            options: {
-              statusBar: {
-                drawBehind: true,
-                backgroundColor: "transparent",
-                animate: false,
-              },
-            },
-          },
-        },
         {
           component: {
             name: "Login",

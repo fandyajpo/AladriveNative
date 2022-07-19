@@ -30,9 +30,6 @@ const DaftarPage = ({ ourRef, daftar }) => {
       <View>
         <MemoizeInputInformasiOutlet />
       </View>
-      <View>
-        <MemoizeInputAlamatOutlet />
-      </View>
     </PagerView>
   );
 };

@@ -76,7 +76,7 @@ export const BackHandlerDaftar = ({
   setDaftar,
 }) => {
   const BackHandle = (e) => {
-    if (daftar > 1) return;
+    if (daftar > 0) return;
 
     setDaftar(daftar + 1);
   };
@@ -91,26 +91,19 @@ export const BackHandlerDaftar = ({
     setDaftar(daftar - 1);
   };
 
-  React.useEffect(() => {
-    const backAction = () => {
-      Alert.alert("Hold on!", "Are you sure you want to go back?", [
-        {
-          text: "Cancel",
-          onPress: () => null,
-          style: "cancel",
-        },
-        { text: "YES", onPress: () => BackHandler.exitApp() },
-      ]);
+  BackHandler.addEventListener("hardwareBackPress", function () {
+    if (daftar > 0) {
+      Backx();
       return true;
-    };
+    }
 
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
+    if (daftar < 1) {
+      BackRoute(componentId);
+      return true;
+    }
 
-    return () => backHandler.remove();
-  }, []);
+    return false;
+  });
 
   return (
     <View

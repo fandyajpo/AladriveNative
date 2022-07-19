@@ -3,7 +3,7 @@ import { View, Text, ScrollView, TextInput, Pressable } from "react-native";
 import tw from "../../lib/tailwind";
 import { UploadImage, RightDropdown } from "../../lib/listSvg";
 import { BackHandlerTaxAndService } from "../../component/profileMerchant/BackHandler";
-import { PushRoute, BackRoute } from "../../lib/ctx";
+import { PushRoute } from "../../lib/ctx";
 const TaxService = ({ componentId }) => {
   return (
     <View style={tw`w-full h-full pt-28`}>
