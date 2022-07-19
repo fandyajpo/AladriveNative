@@ -41,54 +41,13 @@ import UpdateOperasionalScreen from "./screens/Profile/UpdateJamOperasi";
 import UpdateGaleryScreen from "./screens/Profile/UpdateGalery";
 import TipeServisDanTipeBayarScreen from "./screens/Profile/TipeServisDanTipeBayar";
 
-//MEMBER GROUP SCREEN
-import MemberScreen from "./screens/Member/Member";
-
 //REGISTER SCREEN
 import RegisterPage from "./screens/Register";
-
-//PROMO GROUP SCREEN
-import PromoAlacarteScreen from "./screens/Promo/Alacarte/PromoAlacarte";
-import PromoAlaMerchantScreen from "./screens/Promo/AlaMerchant/PromoMerchant";
-import PromoScreen from "./screens/Promo/Promo";
-import PilihMenuScreen from "./screens/Promo/PilihMenu";
-import DiskonMenuScreen from "./screens/Promo/Alacarte/DiskonMenu";
-
-//FOLLOWER GROUP SCREEN
-import FollowersScreen from "./screens/Follower/Followers";
-import AddUserRoleScreen from "./screens/Follower/AddUserRole";
-
-//FEED GROUP SCREEN
-import FeedScreen from "./screens/Feed/Feed";
-import FeedActivityScreen from "./screens/Feed/Activity";
-import FeedSettingScreen from "./screens/Feed/Setting";
-import BlockUserListScreen from "./screens/Feed/BlockUserList";
-
-//MENU DAN STOCK SCREEN
-import MenuDanStockScreen from "./screens/MenuDanStock/MenuDanStock";
-import CategoryListScreen from "./screens/MenuDanStock/KategoriDanMenu.js/CategoryList";
-import AddCategoryScreen from "./screens/MenuDanStock/KategoriDanMenu.js/AddCategory";
-
-//PRIVILAGE GROUP SCREEN
-import PrivilageScreen from "./screens/Privilage/Privilage";
-import PilihCabangScreen from "./screens/Privilage/PilihCabang";
-import TambahAkunPrivilageScreen from "./screens/Privilage/TambahAkunPrivilage";
 
 //AUTH GROUP SCREEN
 import OtpScreen from "./screens/Auth/Otp";
 import ConfirmPinScreen from "./screens/Auth/ConfirmPin";
 import DaftarOutletScreen from "./screens/Auth/Daftar";
-
-Navigation.registerComponent(
-  "TambahAKunPrivilage",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <TambahAkunPrivilageScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => TambahAkunPrivilageScreen
-);
 
 Navigation.registerComponent(
   "DaftarOutlet",
@@ -130,131 +89,6 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
-  "AddCategory",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <AddCategoryScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => AddCategoryScreen
-);
-
-Navigation.registerComponent(
-  "CategoryList",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <CategoryListScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => CategoryListScreen
-);
-
-Navigation.registerComponent(
-  "DiskonMenu",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <DiskonMenuScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => DiskonMenuScreen
-);
-
-Navigation.registerComponent(
-  "PilihMenuPromo",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <PilihMenuScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => PilihMenuScreen
-);
-
-Navigation.registerComponent(
-  "PilihCabang",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PilihCabangScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PilihCabangScreen
-);
-
-Navigation.registerComponent(
-  "Privilage",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PrivilageScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PrivilageScreen
-);
-
-Navigation.registerComponent(
-  "MenuDanStock",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <MenuDanStockScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => MenuDanStockScreen
-);
-
-Navigation.registerComponent(
-  "BlockUser",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <BlockUserListScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => BlockUserListScreen
-);
-
-Navigation.registerComponent(
-  "FeedSetting",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <FeedSettingScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => FeedSettingScreen
-);
-
-Navigation.registerComponent(
-  "FeedActivity",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <FeedActivityScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => FeedActivityScreen
-);
-
-Navigation.registerComponent(
-  "AddUserRole",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <AddUserRoleScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => AddUserRoleScreen
-);
-
-Navigation.registerComponent(
   "Register",
   () => (props) =>
     (
@@ -263,58 +97,6 @@ Navigation.registerComponent(
       </GlobalProvider>
     ),
   () => RegisterPage
-);
-
-Navigation.registerComponent(
-  "Member",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <MemberScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => MemberScreen
-);
-
-Navigation.registerComponent(
-  "AddPrinter",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <AddPrinterScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => AddPrinterScreen
-);
-
-Navigation.registerComponent(
-  "TipeServisDanTipeBayar",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <TipeServisDanTipeBayarScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => TipeServisDanTipeBayarScreen
-);
-
-Navigation.registerComponent(
-  "UpdateGalery",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <UpdateGaleryScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => UpdateGaleryScreen
 );
 
 Navigation.registerComponent(
@@ -390,39 +172,6 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
-  "Language",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <LanguageScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => LanguageScreen
-);
-
-Navigation.registerComponent(
-  "BiayaTakeaway",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <BiayaTakeawayScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => BiayaTakeawayScreen
-);
-
-Navigation.registerComponent(
-  "DebitBank",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <DebitBankScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => DebitBankScreen
-);
-
-Navigation.registerComponent(
   "TaxAndService",
   () => (props) =>
     (
@@ -431,39 +180,6 @@ Navigation.registerComponent(
       </GlobalProvider>
     ),
   () => TaxAndService
-);
-
-Navigation.registerComponent(
-  "OrderDetail",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <OrderDetailScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => OrderDetailScreen
-);
-
-Navigation.registerComponent(
-  "Comment",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <CommentScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => CommentScreen
-);
-
-Navigation.registerComponent(
-  "Followers",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <FollowersScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => FollowersScreen
 );
 
 Navigation.registerComponent(
@@ -503,89 +219,6 @@ Navigation.registerComponent(
       </SafeAreaProvider>
     ),
   () => HomeScreen
-);
-
-Navigation.registerComponent(
-  "History",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <HistoryScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => HistoryScreen
-);
-
-Navigation.registerComponent(
-  "Feed",
-  () => (props) =>
-    (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <GlobalProvider>
-          <FeedScreen {...props} />
-        </GlobalProvider>
-      </GestureHandlerRootView>
-    ),
-  () => FeedScreen
-);
-
-Navigation.registerComponent(
-  "Promo",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PromoScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PromoScreen
-);
-
-Navigation.registerComponent(
-  "PromoCarte",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PromoAlacarteScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PromoAlacarteScreen
-);
-
-Navigation.registerComponent(
-  "PromoMerchant",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PromoAlaMerchantScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PromoAlaMerchantScreen
-);
-
-Navigation.registerComponent(
-  "Profile",
-  () => (props) =>
-    (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <GlobalProvider>
-          <ProfileScreen {...props} />
-        </GlobalProvider>
-      </GestureHandlerRootView>
-    ),
-  () => ProfileScreen
-);
-
-Navigation.registerComponent(
-  "MerchantStatus",
-  () => (props) =>
-    (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        <GlobalProvider>
-          <MerchantStatusScreen {...props} />
-        </GlobalProvider>
-      </GestureHandlerRootView>
-    ),
-  () => MerchantStatusScreen
 );
 
 Navigation.registerComponent("Camera", () => CameraScreen);

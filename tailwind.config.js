@@ -17,10 +17,10 @@ module.exports = {
     },
     colors: {
       ...colors,
-      dblue: "#4391EF",
       myellow: "#F3B33D",
-      dgray: "#F2F8FF",
       mgray: "#F4F7FA",
+      dblue: "#4391EF",
+      dgray: "#F2F8FF",
     },
   },
 };
