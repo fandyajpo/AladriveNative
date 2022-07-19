@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
-import { BackHandlerConfirmPin } from "../../component/auth/BackHandler";
+// import { BackHandlerConfirmPin } from "../../component/login/BackHandler";
 import { ResendCode } from "../../lib/listSvg";
 import tw from "../../lib/tailwind";
 
@@ -31,7 +31,7 @@ const ConfirmPin = ({ componentId }) => {
         </Text>
         <ResendCode />
       </View>
-      <BackHandlerConfirmPin componentId={componentId} />
+      {/* <BackHandlerConfirmPin componentId={componentId} /> */}
     </View>
   );
 };

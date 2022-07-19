@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import { BackHandlerOtp } from "../../component/auth/BackHandler";
+import { BackHandlerOtp } from "../../component/login/BackHandler";
 import { Whatsapp, Sms, Telephone } from "../../lib/listSvg";
 import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";

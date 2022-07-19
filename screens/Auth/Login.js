@@ -7,7 +7,7 @@ import { GlobalContext } from "../../lib/ctx";
 import { useForm, Controller } from "react-hook-form";
 import { BackRoute, PushRoute } from "../../lib/ctx";
 import { storage } from "../../lib/strg";
-
+import { BackHandler } from "react-native";
 const image = require("../assets/images/loginBackground.png");
 const logImage = require("../assets/images/loginImage.png");
 
@@ -183,6 +183,11 @@ const Login = ({ componentId }) => {
     );
     return () => unsubscribe.remove();
   }, [componentId]);
+
+  BackHandler.addEventListener("hardwareBackPress", function () {
+    BackRoute(componentId);
+    return true;
+  });
 
   return (
     <View style={[styles.root, tw`bg-white`]}>

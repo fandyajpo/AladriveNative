@@ -1,7 +1,8 @@
 import React from "react";
 import SplashScreen from "react-native-splash-screen";
 import tw from "../lib/tailwind";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { Navigation } from "react-native-navigation";
+import { View, Text, StyleSheet, Pressable, BackHandler } from "react-native";
 import { Motor, AlaDrive } from "../lib/listSvg";
 import { PushRoute } from "../lib/ctx";
 
@@ -11,6 +12,14 @@ const Enter = ({ componentId }) => {
   React.useEffect(() => {
     SplashScreen.hide();
   }, []);
+
+  BackHandler.addEventListener("hardwareBackPress", function () {
+    if (componentId) {
+      BackHandler.exitApp();
+      return true;
+    }
+    return false;
+  });
 
   return (
     <View style={styles.root}>

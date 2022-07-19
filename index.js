@@ -17,29 +17,7 @@ import { SheetProvider } from "react-native-actions-sheet";
 import EnterScreen from "./screens/EnterApp";
 import LoginScreen from "./screens/Auth/Login";
 import HomeScreen from "./screens/Order";
-import HistoryScreen from "./screens/History";
-import ProfileScreen from "./screens/Profile/Profile";
-import MerchantStatusScreen from "./screens/MerchantStatus";
 import CameraScreen from "./screens/Camera";
-import CommentScreen from "./screens/SeeComment";
-import OrderDetailScreen from "./screens/OrderDetail";
-
-//SETTING GROUP SCREEN
-import SettingScreen from "./screens/Settings/Setting";
-import TaxAndService from "./screens/Settings/TaxAndService";
-import DebitBankScreen from "./screens/Settings/DebitBank";
-import BiayaTakeawayScreen from "./screens/Settings/BiayaTakeaway";
-import LanguageScreen from "./screens/Settings/Language";
-import PrinterScreen from "./screens/Settings/Printer";
-import AddPrinterScreen from "./screens/Settings/AddPrinter";
-
-//PROFILE UDPDATE GROUP SCREEN
-import EditProfileScreen from "./screens/Profile/EditProfile";
-import UpdateOutletCategoryScreen from "./screens/Profile/UpdateOutletCategory";
-import UpdateAlamatScreen from "./screens/Profile/UpdateAlamat";
-import UpdateOperasionalScreen from "./screens/Profile/UpdateJamOperasi";
-import UpdateGaleryScreen from "./screens/Profile/UpdateGalery";
-import TipeServisDanTipeBayarScreen from "./screens/Profile/TipeServisDanTipeBayar";
 
 //AUTH GROUP SCREEN
 import OtpScreen from "./screens/Auth/Otp";
@@ -83,89 +61,6 @@ Navigation.registerComponent(
       </SheetProvider>
     ),
   () => OtpScreen
-);
-
-Navigation.registerComponent(
-  "UpdateOperasional",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <UpdateOperasionalScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => UpdateOperasionalScreen
-);
-
-Navigation.registerComponent(
-  "UpdateAlamatOutlet",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <UpdateAlamatScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => UpdateAlamatScreen
-);
-
-Navigation.registerComponent(
-  "UpdateOutletCategory",
-  () => (props) =>
-    (
-      <SheetProvider>
-        <GlobalProvider>
-          <UpdateOutletCategoryScreen {...props} />
-        </GlobalProvider>
-      </SheetProvider>
-    ),
-  () => UpdateOutletCategoryScreen
-);
-
-Navigation.registerComponent(
-  "EditProfile",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <EditProfileScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => EditProfileScreen
-);
-
-Navigation.registerComponent(
-  "Setting",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <SettingScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => SettingScreen
-);
-
-Navigation.registerComponent(
-  "Printer",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <PrinterScreen {...props} />
-      </GlobalProvider>
-    ),
-  () => PrinterScreen
-);
-
-Navigation.registerComponent(
-  "TaxAndService",
-  () => (props) =>
-    (
-      <GlobalProvider>
-        <TaxAndService {...props} />
-      </GlobalProvider>
-    ),
-  () => TaxAndService
 );
 
 Navigation.registerComponent(
@@ -498,18 +393,18 @@ const enterApp = {
   root: {
     stack: {
       children: [
-        {
-          component: {
-            name: "Login",
-            options: {
-              statusBar: {
-                drawBehind: true,
-                backgroundColor: "transparent",
-                animate: false,
-              },
-            },
-          },
-        },
+        // {
+        //   component: {
+        //     name: "Login",
+        //     options: {
+        //       statusBar: {
+        //         drawBehind: true,
+        //         backgroundColor: "transparent",
+        //         animate: false,
+        //       },
+        //     },
+        //   },
+        // },
         {
           component: {
             name: "Enter",
@@ -544,7 +439,5 @@ function isLoggedIn(vals) {
 }
 
 Navigation.events().registerAppLaunchedListener(() => {
-  //set token at ./Auth/login.js
-
   Navigation.setRoot(isLoggedIn() ? mainRoot : enterApp);
 });

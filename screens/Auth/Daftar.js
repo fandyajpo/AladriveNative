@@ -1,11 +1,10 @@
 import React from "react";
 import { View, Image } from "react-native";
-import DaftarPage from "../../component/auth/DaftarPage";
+import DaftarPage from "../../component/login/DaftarPage";
 import { Navigation } from "react-native-navigation";
 import tw from "../../lib/tailwind";
-import DaftarHeader from "../../component/auth/DaftarHeader";
-import { BackHandlerDaftar } from "../../component/auth/BackHandler";
-import { AddTaggingSheet } from "../../component/auth/BottomSheet";
+import DaftarHeader from "../../component/login/DaftarHeader";
+import { BackHandlerDaftar } from "../../component/login/BackHandler";
 const Daftar = ({ componentId }) => {
   const [appIsReady, setAppIsReady] = React.useState(false);
   const ourRef = React.useRef(0);
@@ -60,7 +59,7 @@ const Daftar = ({ componentId }) => {
     <View style={tw`w-full h-full`}>
       <DaftarPage ourRef={ourRef} daftar={daftar} setDaftar={setDaftar} />
       <DaftarHeader ourRef={ourRef} daftar={daftar} setDaftar={setDaftar} />
-      <AddTaggingSheet />
+
       <BackHandlerDaftar
         ourRef={ourRef}
         componentId={componentId}

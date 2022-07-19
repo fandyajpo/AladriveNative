@@ -18,6 +18,7 @@
     "react-native": "0.68.2",
     "react-native-actions-sheet": "^0.7.2",
     "react-native-animated-pagination-dots": "^0.1.72",
+    "react-native-bouncy-checkbox": "^2.1.10",
     "react-native-gesture-handler": "^2.4.2",
     "react-native-mmkv": "^2.4.1",
     "react-native-modal": "^13.0.1",
