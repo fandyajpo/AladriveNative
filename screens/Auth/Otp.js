@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, Pressable } from "react-native";
+import { View, Text, Pressable, BackHandler } from "react-native";
 import { BackHandlerOtp } from "../../component/login/BackHandler";
 import { Whatsapp, Sms, Telephone } from "../../lib/listSvg";
 import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";
 
 const Otp = ({ componentId }) => {
-  const sheetRef = React.useRef(null);
   return (
     <View style={tw`mt-13 w-full h-full pb-32 bg-white`}>
       <View style={tw`px-2`}>

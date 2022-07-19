@@ -1,10 +1,12 @@
 import React from "react";
-// import BouncyCheckbox from "react-native-bouncy-checkbox";
+import { Checkbox } from "react-native-paper";
+
 import { View, Text, ScrollView, TextInput, Pressable } from "react-native";
 import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";
 import { RightDropdown } from "../../lib/listSvg";
 const InputInformasiBank = ({ componentId }) => {
+  const [checked, setChecked] = React.useState(false);
   return (
     <View style={tw`w-full h-full pt-28`}>
       <ScrollView
@@ -67,16 +69,12 @@ const InputInformasiBank = ({ componentId }) => {
           />
         </View>
         <View style={tw`p-2`}>
-          {/* <BouncyCheckbox
-            size={25}
-            fillColor="blue"
-            unfillColor="#FFFFFF"
-            text="Custom Checkbox"
-            iconStyle={{ borderColor: "red" }}
-            textStyle={{ fontFamily: "JosefinSans-Regular" }}
-            isChecked={true}
-            useNativeDriver={true}
-          /> */}
+          <Checkbox
+            status={checked ? "checked" : "unchecked"}
+            onPress={() => {
+              setChecked(!checked);
+            }}
+          />
         </View>
       </ScrollView>
     </View>

@@ -22,7 +22,13 @@ import CameraScreen from "./screens/Camera";
 //AUTH GROUP SCREEN
 import OtpScreen from "./screens/Auth/Otp";
 import ConfirmPinScreen from "./screens/Auth/ConfirmPin";
-import DaftarOutletScreen from "./screens/Auth/Daftar";
+import DaftarUserScreen from "./screens/Auth/Daftar";
+
+//HOME GROUP SCREEN
+import PengantaranScreen from "./screens/Pengantaran/Pengantaran";
+import RiwayatScreen from "./screens/Riwayat/Riwayat";
+import OutletScreen from "./screens/Outlet/Outlet";
+import ProfileScreen from "./screens/Profile/UserProfile";
 
 Navigation.registerComponent(
   "DaftarOutlet",
@@ -30,11 +36,11 @@ Navigation.registerComponent(
     (
       // <SheetProvider>
       <GlobalProvider>
-        <DaftarOutletScreen {...props} />
+        <DaftarUserScreen {...props} />
       </GlobalProvider>
       // </SheetProvider>
     ),
-  () => DaftarOutletScreen
+  () => DaftarUserScreen
 );
 
 Navigation.registerComponent(
@@ -86,20 +92,53 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
-  "Order",
+  "Profile",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <ProfileScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => ProfileScreen
+);
+
+Navigation.registerComponent(
+  "Outlet",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <OutletScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => OutletScreen
+);
+
+Navigation.registerComponent(
+  "Riwayat",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <RiwayatScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => RiwayatScreen
+);
+
+Navigation.registerComponent(
+  "Pengantaran",
   () => (props) =>
     (
       <SafeAreaProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <BottomSheetModalProvider>
             <GlobalProvider>
-              <HomeScreen {...props} />
+              <PengantaranScreen {...props} />
             </GlobalProvider>
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </SafeAreaProvider>
     ),
-  () => HomeScreen
+  () => PengantaranScreen
 );
 
 Navigation.registerComponent("Camera", () => CameraScreen);
@@ -158,7 +197,7 @@ const mainRoot = {
           stack: {
             children: [
               {
-                component: { name: "Order", id: "ORDER_SCREEN" },
+                component: { name: "Pengantaran", id: "PENGANTARAN_SCREEN" },
               },
             ],
             options: {
@@ -173,7 +212,7 @@ const mainRoot = {
           stack: {
             children: [
               {
-                component: { name: "History", id: "HISTORY_SCREEN" },
+                component: { name: "Riwayat", id: "RIWAYAT_SCREEN" },
               },
             ],
             options: {
@@ -188,28 +227,13 @@ const mainRoot = {
           stack: {
             children: [
               {
-                component: { name: "Feed", id: "FEED_SCREEN" },
+                component: { name: "Outlet", id: "OUTLET_SCREEN" },
               },
             ],
             options: {
               bottomTab: {
                 text: "Feed",
                 icon: require("./assets/icons/25/stories.png"),
-              },
-            },
-          },
-        },
-        {
-          stack: {
-            children: [
-              {
-                component: { name: "Promo", id: "PROMO_SCREEN" },
-              },
-            ],
-            options: {
-              bottomTab: {
-                text: "Promo",
-                icon: require("./assets/icons/25/user.png"),
               },
             },
           },
@@ -235,137 +259,9 @@ const mainRoot = {
       children: [
         {
           component: {
-            name: "MerchantStatus",
-            passProps: {
-              text: "Merchant status screen",
-            },
-          },
-        },
-        {
-          component: {
             name: "Camera",
             passProps: {
               text: "Camera screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "Followers",
-            passProps: {
-              text: "Followers screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "Comment",
-            passProps: {
-              text: "Followers screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "Setting",
-            passProps: {
-              text: "Setting screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "TaxAndService",
-            passProps: {
-              text: "Manage tax and service screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "DebitBank",
-            passProps: {
-              text: "Manage tax and service screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "BiayaTakeaway",
-            passProps: {
-              text: "Manage biaya takeaway screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "Language",
-            passProps: {
-              text: "Manage bahasa screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "EditProfile",
-            passProps: {
-              text: "Edit merchant profile screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "UpdateOutletCategory",
-            passProps: {
-              text: "Update outlet category screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "UpdateAlamatOutlet",
-            passProps: {
-              text: "Update outlet category screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "UpdateOperasional",
-            passProps: {
-              text: "Update jam operasional screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "UpdateGalery",
-            passProps: {
-              text: "Update galery screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "TipeServisDanTipeBayar",
-            passProps: {
-              text: "Available service type screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "AddPrinter",
-            passProps: {
-              text: "Add printer screen",
-            },
-          },
-        },
-        {
-          component: {
-            name: "Member",
-            passProps: {
-              text: "Member screen",
             },
           },
         },
@@ -393,18 +289,22 @@ const enterApp = {
   root: {
     stack: {
       children: [
-        // {
-        //   component: {
-        //     name: "Login",
-        //     options: {
-        //       statusBar: {
-        //         drawBehind: true,
-        //         backgroundColor: "transparent",
-        //         animate: false,
-        //       },
-        //     },
-        //   },
-        // },
+        {
+          component: {
+            name: "Otp",
+            options: {
+              statusBar: {
+                drawBehind: true,
+                backgroundColor: "transparent",
+                animate: false,
+              },
+            },
+          },
+        },
+      ],
+    },
+    stack: {
+      children: [
         {
           component: {
             name: "Enter",
@@ -439,5 +339,5 @@ function isLoggedIn(vals) {
 }
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot(isLoggedIn() ? mainRoot : enterApp);
+  Navigation.setRoot(enterApp);
 });

@@ -5,12 +5,20 @@ import {
   TouchableOpacity,
   Pressable,
   BackHandler,
-  Alert,
 } from "react-native";
+import ActionSheet, {
+  SheetManager,
+  SheetProps,
+  registerSheet,
+} from "react-native-actions-sheet";
 import tw from "../../lib/tailwind";
 import { Back } from "../../lib/listSvg";
 import { BackRoute, PushRoute } from "../../lib/ctx";
 export const BackHandlerOtp = ({ componentId }) => {
+  BackHandler.addEventListener("hardwareBackPress", function () {
+    return true;
+  });
+
   return (
     <View
       style={tw`absolute bottom-0 w-full h-44 bg-mgray p-4 z-50 border-t-2 border-l border-r border-gray-300 rounded-xl`}
@@ -26,7 +34,6 @@ export const BackHandlerOtp = ({ componentId }) => {
           <Text style={tw`text-gray-800 text-sm sm:text-lg font-bold`}>
             Kirim OTP
           </Text>
-          <View style={tw`w-full h-0.5 rounded-full bg-myellow`} />
         </View>
         <View style={tw`w-2/6`} />
       </View>
@@ -50,7 +57,6 @@ export const BackHandlerConfirmPin = ({ componentId }) => {
           <Text style={tw`text-gray-800 text-sm sm:text-lg font-bold`}>
             Konfirmasi Pin
           </Text>
-          <View style={tw`w-full h-0.5 rounded-full bg-myellow`} />
         </View>
         <View style={tw`w-2/6`} />
       </View>
@@ -76,17 +82,13 @@ export const BackHandlerDaftar = ({
   setDaftar,
 }) => {
   const BackHandle = (e) => {
-    if (daftar > 0) return;
+    if (daftar > 0) return PushRoute(componentId, "Otp");
 
     setDaftar(daftar + 1);
   };
 
-  React.useEffect(() => {
-    console.log("NILAI DAFTARs", daftar);
-  });
-
   const Backx = () => {
-    if (daftar < 1) BackRoute(componentId);
+    if (daftar < 1) return SheetManager.show("cancelRegistSheet");
 
     setDaftar(daftar - 1);
   };
@@ -114,16 +116,15 @@ export const BackHandlerDaftar = ({
           <Back />
         </Pressable>
         <View style={tw`w-2/6 h-8 flex items-center justify-center`}>
-          <Text style={tw`text-gray-800 text-sm sm:text-lg font-bold`}>
+          <Text style={tw`text-gray-800 text-sm sm:text-xl font-bold`}>
             Daftar
           </Text>
-          <View style={tw`w-full h-0.5 rounded-full bg-myellow`} />
         </View>
         <View style={tw`w-2/6`} />
       </View>
       <Pressable onPress={BackHandle} style={tw`mt-3 shadow-xl`}>
         <View
-          style={tw`w-full bg-myellow h-10 sm:h-12 rounded-full flex items-center justify-center`}
+          style={tw`w-full bg-dblue h-10 sm:h-12 rounded-full flex items-center justify-center`}
         >
           <Text style={tw`text-sm font-bold`}>Lanjut</Text>
         </View>

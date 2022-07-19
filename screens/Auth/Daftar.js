@@ -1,10 +1,12 @@
 import React from "react";
+
 import { View, Image } from "react-native";
 import DaftarPage from "../../component/login/DaftarPage";
 import { Navigation } from "react-native-navigation";
 import tw from "../../lib/tailwind";
 import DaftarHeader from "../../component/login/DaftarHeader";
 import { BackHandlerDaftar } from "../../component/login/BackHandler";
+import { CancelRegistSheet } from "../../component/login/BottomSheet";
 const Daftar = ({ componentId }) => {
   const [appIsReady, setAppIsReady] = React.useState(false);
   const ourRef = React.useRef(0);
@@ -66,6 +68,7 @@ const Daftar = ({ componentId }) => {
         daftar={daftar}
         setDaftar={setDaftar}
       />
+      <CancelRegistSheet id={"cancelRegistSheet"} componentId={componentId} />
     </View>
   );
 };
