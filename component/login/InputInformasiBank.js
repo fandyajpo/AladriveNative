@@ -4,7 +4,6 @@ import tw from "../../lib/tailwind";
 import { PushRoute } from "../../lib/ctx";
 import { RightDropdown } from "../../lib/listSvg";
 const InputInformasiBank = ({ componentId }) => {
-  const [checked, setChecked] = React.useState(false);
   return (
     <View style={tw`w-full h-full pt-28`}>
       <ScrollView

@@ -25,10 +25,71 @@ import ConfirmPinScreen from "./screens/Auth/ConfirmPin";
 import DaftarUserScreen from "./screens/Auth/Daftar";
 
 //HOME GROUP SCREEN
-import PengantaranScreen from "./screens/Pengantaran/Pengantaran";
+import ProfileScreen from "./screens/Profile/Partner/UserProfile";
+
+//INHOUSE HOME
+import PartnerPengantaranScreen from "./screens/Pengantaran/Partner/Pengantaran";
+import InHousePengantaran from "./screens/Pengantaran/InHouse/Pengantaran";
+
+//RIWAYAT GROUP SCREEN
 import RiwayatScreen from "./screens/Riwayat/Riwayat";
+import RiwayatSearchScreen from "./screens/Riwayat/RiwayatSearch";
+import RiwayatDetailScreen from "./screens/Riwayat/RiwayatDetail";
+
+//OUTLET GROUP SCREEN
 import OutletScreen from "./screens/Outlet/Outlet";
-import ProfileScreen from "./screens/Profile/UserProfile";
+import PartnerProfileScreen from "./screens/Outlet/PartnerProfile";
+import OutletProfileScreen from "./screens/Outlet/OutletProfile";
+import OutletOnWaitlistScreen from "./screens/Outlet/OutletOnWaitlist";
+import MenungguPersetujuanScreen from "./screens/Outlet/MenungguPersetujuan";
+import TambahPartnerScreen from "./screens/Outlet/TambahPartner";
+import RiwayatAntarScreen from "./screens/Outlet/RiwayatAntar";
+
+//SALDO SCREEN
+import SaldoScreen from "./screens/Profile/Partner/Saldo";
+import RiwayatPenarikanScreen from "./screens/Profile/Partner/RiwayatPenarikan";
+
+//PROCESS
+import InputOutletPinScreen from "./screens/Pengantaran/InputOutletPin";
+
+Navigation.registerComponent(
+  "InputOutletPin",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <InputOutletPinScreen {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => InputOutletPinScreen
+);
+
+Navigation.registerComponent(
+  "RiwayatPenarikan",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <RiwayatPenarikanScreen {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => RiwayatPenarikanScreen
+);
+
+Navigation.registerComponent(
+  "Saldo",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <SaldoScreen {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => SaldoScreen
+);
 
 Navigation.registerComponent(
   "DaftarOutlet",
@@ -81,6 +142,17 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
+  "TambahPartner",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <TambahPartnerScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => TambahPartnerScreen
+);
+
+Navigation.registerComponent(
   "Login",
   () => (props) =>
     (
@@ -114,6 +186,61 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
+  "OutletOnWaitlist",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <OutletOnWaitlistScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => OutletOnWaitlistScreen
+);
+
+Navigation.registerComponent(
+  "PartnerProfile",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <PartnerProfileScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => PartnerProfileScreen
+);
+
+Navigation.registerComponent(
+  "RiwayatAntar",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <RiwayatAntarScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => RiwayatAntarScreen
+);
+
+Navigation.registerComponent(
+  "MenungguPersetujuan",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <MenungguPersetujuanScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => MenungguPersetujuanScreen
+);
+
+Navigation.registerComponent(
+  "OutletProfile",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <OutletProfileScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => OutletProfileScreen
+);
+
+Navigation.registerComponent(
   "Riwayat",
   () => (props) =>
     (
@@ -125,20 +252,59 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
-  "Pengantaran",
+  "RiwayatSearch",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <RiwayatSearchScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => RiwayatSearchScreen
+);
+
+Navigation.registerComponent(
+  "RiwayatDetail",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <RiwayatDetailScreen {...props} />
+      </GlobalProvider>
+    ),
+  () => RiwayatDetailScreen
+);
+
+Navigation.registerComponent(
+  "PartnerPengantaran",
   () => (props) =>
     (
       <SafeAreaProvider>
         <GestureHandlerRootView style={{ flex: 1 }}>
           <BottomSheetModalProvider>
             <GlobalProvider>
-              <PengantaranScreen {...props} />
+              <PartnerPengantaranScreen {...props} />
             </GlobalProvider>
           </BottomSheetModalProvider>
         </GestureHandlerRootView>
       </SafeAreaProvider>
     ),
-  () => PengantaranScreen
+  () => PartnerPengantaranScreen
+);
+
+Navigation.registerComponent(
+  "InHousePengantaran",
+  () => (props) =>
+    (
+      <SafeAreaProvider>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <BottomSheetModalProvider>
+            <GlobalProvider>
+              <InHousePengantaran {...props} />
+            </GlobalProvider>
+          </BottomSheetModalProvider>
+        </GestureHandlerRootView>
+      </SafeAreaProvider>
+    ),
+  () => InHousePengantaran
 );
 
 Navigation.registerComponent("Camera", () => CameraScreen);
@@ -164,9 +330,9 @@ Navigation.setDefaultOptions({
   },
   bottomTab: {
     iconColor: "#8a8a8a",
-    selectedIconColor: "#F3B33D",
+    selectedIconColor: "#4391EF",
     textColor: "#8a8a8a",
-    selectedTextColor: "#F3B33D",
+    selectedTextColor: "#4391EF",
     fontSize: 10,
     selectedFontSize: 12,
   },
@@ -189,7 +355,7 @@ Navigation.setDefaultOptions({
   },
 });
 
-const mainRoot = {
+const partnerRoot = {
   root: {
     bottomTabs: {
       children: [
@@ -197,12 +363,15 @@ const mainRoot = {
           stack: {
             children: [
               {
-                component: { name: "Pengantaran", id: "PENGANTARAN_SCREEN" },
+                component: {
+                  name: "PartnerPengantaran",
+                  id: "PENGANTARAN_SCREEN",
+                },
               },
             ],
             options: {
               bottomTab: {
-                text: "Order",
+                text: "Pengantaran",
                 icon: require("./assets/icons/25/home.png"),
               },
             },
@@ -217,7 +386,7 @@ const mainRoot = {
             ],
             options: {
               bottomTab: {
-                text: "History",
+                text: "Riwayat",
                 icon: require("./assets/icons/25/mockup.png"),
               },
             },
@@ -232,12 +401,82 @@ const mainRoot = {
             ],
             options: {
               bottomTab: {
-                text: "Feed",
+                text: "Outlet",
                 icon: require("./assets/icons/25/stories.png"),
               },
             },
           },
         },
+        {
+          stack: {
+            children: [
+              {
+                component: { name: "Profile", id: "PROFILE_SCREEN" },
+              },
+            ],
+            options: {
+              bottomTab: {
+                text: "Profile",
+                icon: require("./assets/icons/25/user.png"),
+              },
+            },
+          },
+        },
+      ],
+    },
+    stack: {
+      children: [
+        {
+          component: {
+            name: "Camera",
+            passProps: {
+              text: "Camera screen",
+            },
+          },
+        },
+      ],
+    },
+  },
+};
+
+const inHouseRoot = {
+  root: {
+    bottomTabs: {
+      children: [
+        {
+          stack: {
+            children: [
+              {
+                component: {
+                  name: "InHousePengantaran",
+                  id: "INHOUSE_PENGANTARAN_SCREEN",
+                },
+              },
+            ],
+            options: {
+              bottomTab: {
+                text: "Pengantaran",
+                icon: require("./assets/icons/25/home.png"),
+              },
+            },
+          },
+        },
+        {
+          stack: {
+            children: [
+              {
+                component: { name: "Riwayat", id: "RIWAYAT_SCREEN" },
+              },
+            ],
+            options: {
+              bottomTab: {
+                text: "Riwayat",
+                icon: require("./assets/icons/25/mockup.png"),
+              },
+            },
+          },
+        },
+
         {
           stack: {
             children: [
@@ -339,5 +578,5 @@ function isLoggedIn(vals) {
 }
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot(enterApp);
+  Navigation.setRoot(partnerRoot);
 });
