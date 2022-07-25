@@ -24,4 +24,4 @@ const InputRestoPin = ({ prosesRef }) => {
   );
 };
 
-export default InputRestoPin;
+export default React.memo(InputRestoPin);

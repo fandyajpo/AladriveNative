@@ -52,6 +52,49 @@ import RiwayatPenarikanScreen from "./screens/Profile/Partner/RiwayatPenarikan";
 //PROCESS
 import InputOutletPinScreen from "./screens/Pengantaran/InputOutletPin";
 
+import UbahRekeningScreen from "./screens/Profile/Partner/UbahRekening";
+import PinScreen from "./screens/Profile/Pin";
+import ProsesVerif from "./screens/Profile/ProsesVerif";
+
+Navigation.registerComponent(
+  "ProsesVerif",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <ProsesVerif {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => ProsesVerif
+);
+
+Navigation.registerComponent(
+  "Pin",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <PinScreen {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => PinScreen
+);
+
+Navigation.registerComponent(
+  "UbahRekening",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <UbahRekeningScreen {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => UbahRekeningScreen
+);
+
 Navigation.registerComponent(
   "InputOutletPin",
   () => (props) =>

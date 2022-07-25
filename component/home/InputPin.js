@@ -33,4 +33,4 @@ const InputPin = ({ componentId, setTerimaOrder }) => {
   );
 };
 
-export default InputPin;
+export default React.memo(InputPin);

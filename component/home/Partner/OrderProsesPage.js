@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import PagerView from "react-native-pager-view";
 import tw from "../../../lib/tailwind";
@@ -6,16 +6,21 @@ import OrderDetail from "../OrderDetail";
 import OrderHeader from "../OrderHeader";
 import InputPin from "../InputPin";
 import { useDeviceContext } from "twrnc";
-import AcceptOrRefuse from "../AcceptOrRefuse";
+import AcceptOrRefuse from "./AcceptOrRefuse";
 import InputRestoPin from "../Process/InputRestoPin";
 import HomeOnTheWay from "../Process/HomeOnTheWay";
 
 import HomeProses from "../Process/HomeProses";
 import PickUp from "../PickUp";
 import Sampai from "../Sampai";
+import Selesai from "../Selesai";
+import ServiceDone from "../ServiceDone";
 
 import { GlobalContext } from "../../../lib/ctx";
 import HomeSampai from "../Process/HomeSampai";
+import HomeDone from "../Process/HomeDone";
+
+import { SheetManager } from "react-native-actions-sheet";
 
 const OrderProsesPage = ({ componentId }) => {
   useDeviceContext(tw);
@@ -24,6 +29,10 @@ const OrderProsesPage = ({ componentId }) => {
 
   const prosesRef = React.useRef(0);
 
+  const openSheet = React.useCallback(() => {
+    SheetManager.show("orderDetail");
+  });
+
   React.useEffect(() => {
     prosesRef.current.setPage(orderProgress);
     console.log(orderProgress);
@@ -31,7 +40,12 @@ const OrderProsesPage = ({ componentId }) => {
 
   return (
     <>
-      <PagerView ref={prosesRef} style={styles.pagerView} initialPage={0}>
+      <PagerView
+        ref={prosesRef}
+        style={styles.pagerView}
+        initialPage={0}
+        scrollEnabled={false}
+      >
         <View>
           <OrderDetail />
           <View style={tw`absolute top-0 w-full`}>
@@ -45,19 +59,24 @@ const OrderProsesPage = ({ componentId }) => {
           <InputRestoPin prosesRef={prosesRef} />
           <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
             <View style={tw`w-44  p-2`}>
-              <Pressable style={tw`border border-gray-300 rounded-full p-2`}>
+              <Pressable
+                style={tw`border border-gray-300 rounded-full p-2`}
+                onPress={openSheet}
+              >
                 <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
               </Pressable>
             </View>
             <InputPin componentId={componentId} prosesRef={prosesRef} />
           </View>
         </View>
-
         <View>
           <HomeProses prosesRef={prosesRef} />
           <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
             <View style={tw`w-44  p-2`}>
-              <Pressable style={tw`border border-gray-300 rounded-full p-2`}>
+              <Pressable
+                style={tw`border border-gray-300 rounded-full p-2`}
+                onPress={openSheet}
+              >
                 <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
               </Pressable>
             </View>
@@ -68,18 +87,10 @@ const OrderProsesPage = ({ componentId }) => {
           <HomeOnTheWay prosesRef={prosesRef} />
           <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
             <View style={tw`w-44  p-2`}>
-              <Pressable style={tw`border border-gray-300 rounded-full p-2`}>
-                <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
-              </Pressable>
-            </View>
-            <Sampai prosesRef={prosesRef} />
-          </View>
-        </View>
-        <View>
-          <HomeOnTheWay prosesRef={prosesRef} />
-          <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
-            <View style={tw`w-44  p-2`}>
-              <Pressable style={tw`border border-gray-300 rounded-full p-2`}>
+              <Pressable
+                style={tw`border border-gray-300 rounded-full p-2`}
+                onPress={openSheet}
+              >
                 <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
               </Pressable>
             </View>
@@ -90,11 +101,28 @@ const OrderProsesPage = ({ componentId }) => {
           <HomeSampai prosesRef={prosesRef} />
           <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
             <View style={tw`w-44  p-2`}>
-              <Pressable style={tw`border border-gray-300 rounded-full p-2`}>
+              <Pressable
+                style={tw`border border-gray-300 rounded-full p-2`}
+                onPress={openSheet}
+              >
                 <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
               </Pressable>
             </View>
-            <Sampai prosesRef={prosesRef} />
+            <Selesai prosesRef={prosesRef} />
+          </View>
+        </View>
+        <View>
+          <HomeDone prosesRef={prosesRef} />
+          <View style={tw`absolute bottom-0 w-full flex-col items-center`}>
+            <View style={tw`w-44  p-2`}>
+              <Pressable
+                style={tw`border border-gray-300 rounded-full p-2`}
+                onPress={openSheet}
+              >
+                <Text style={tw`text-gray-300 text-center`}>Order Detail</Text>
+              </Pressable>
+            </View>
+            <ServiceDone prosesRef={prosesRef} />
           </View>
         </View>
       </PagerView>
@@ -108,4 +136,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default OrderProsesPage;
+export default React.memo(OrderProsesPage);

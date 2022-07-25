@@ -1,12 +1,11 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { Done, DoneProgress, SampaiProgress } from "../../../lib/listSvg";
+import { Sampai, SampaiProgress } from "../../../lib/listSvg";
 import OrderProsesHeader from "../OrderProsesHeader";
 import tw from "../../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
-import Sampai from "../Sampai";
 
-const HomeSampai = ({}) => {
+const HomeSampai = () => {
   useDeviceContext(tw);
   return (
     <View style={tw`flex-col items-center justify-center w-full h-full`}>
@@ -23,4 +22,4 @@ const HomeSampai = ({}) => {
   );
 };
 
-export default HomeSampai;
+export default React.memo(HomeSampai);

@@ -12,19 +12,15 @@ const Sampai = ({ componentId, setTerimaOrder }) => {
   useDeviceContext(tw);
 
   const showSheet = React.useCallback(() => {
-    SheetManager.show("refuseOrder");
+    SheetManager.show("orderSampai");
   }, []);
-
-  const accept = React.useCallback(() => {
-    setTerimaOrder(1);
-  });
 
   return (
     <View
       style={tw`w-full bg-white p-2 sm:p-4 flex-row justify-around items-center border-b border-t border-gray-300`}
     >
       <Pressable
-        onPress={accept}
+        onPress={showSheet}
         style={[
           { flex: 1 },
           tw`bg-dblue w-full rounded-full h-10 sm:h-12 flex items-center justify-center`,
@@ -36,4 +32,4 @@ const Sampai = ({ componentId, setTerimaOrder }) => {
   );
 };
 
-export default Sampai;
+export default React.memo(Sampai);

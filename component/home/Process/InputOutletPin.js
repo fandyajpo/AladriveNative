@@ -68,4 +68,4 @@ const InputOutletPin = ({ componentId }) => {
   );
 };
 
-export default InputOutletPin;
+export default React.memo(InputOutletPin);

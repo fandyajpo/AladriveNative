@@ -17,6 +17,10 @@ const RekeningPenarikan = ({ componentId }) => {
     PushRoute(componentId, "RiwayatPenarikan");
   });
 
+  const goToUbahRekening = React.useCallback(() => {
+    PushRoute(componentId, "UbahRekening");
+  });
+
   return (
     <View>
       <View
@@ -34,7 +38,7 @@ const RekeningPenarikan = ({ componentId }) => {
             </Text>
           </View>
         </View>
-        <Pressable style={tw`my-4`}>
+        <Pressable style={tw`my-4`} onPress={goToUbahRekening}>
           <Ubah />
         </Pressable>
       </View>

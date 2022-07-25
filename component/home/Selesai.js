@@ -2,21 +2,15 @@ import React from "react";
 import { View, Text, Pressable } from "react-native";
 import tw from "../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
+import { GlobalContext } from "../../lib/ctx";
 
-import ActionSheet, {
-  SheetManager,
-  registerSheet,
-} from "react-native-actions-sheet";
-
-const Selesai = ({ componentId, setTerimaOrder }) => {
+const Selesai = () => {
   useDeviceContext(tw);
 
-  const showSheet = React.useCallback(() => {
-    SheetManager.show("refuseOrder");
-  }, []);
+  const { orderProgress, setOrderProgress } = React.useContext(GlobalContext);
 
-  const accept = React.useCallback(() => {
-    setTerimaOrder(1);
+  const nextProcess = React.useCallback(() => {
+    setOrderProgress(orderProgress + 1);
   });
 
   return (
@@ -24,16 +18,16 @@ const Selesai = ({ componentId, setTerimaOrder }) => {
       style={tw`w-full bg-white p-2 sm:p-4 flex-row justify-around items-center border-b border-t border-gray-300`}
     >
       <Pressable
-        onPress={accept}
+        onPress={nextProcess}
         style={[
           { flex: 1 },
           tw`bg-dblue w-full rounded-full h-10 sm:h-12 flex items-center justify-center`,
         ]}
       >
-        <Text style={tw`text-white text-sm font-bold`}>Input Pin</Text>
+        <Text style={tw`text-white text-sm font-bold`}>Selesai</Text>
       </Pressable>
     </View>
   );
 };
 
-export default Selesai;
+export default React.memo(Selesai);

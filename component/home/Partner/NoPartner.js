@@ -22,4 +22,4 @@ const OfflineMode = () => {
   );
 };
 
-export default OfflineMode;
+export default React.memo(OfflineMode);

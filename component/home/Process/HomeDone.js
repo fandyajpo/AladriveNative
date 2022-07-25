@@ -5,7 +5,7 @@ import OrderProsesHeader from "../OrderProsesHeader";
 import tw from "../../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
 
-const HomeDone = ({}) => {
+const HomeDone = () => {
   useDeviceContext(tw);
   return (
     <View style={tw`flex-col items-center justify-center w-full h-full`}>
@@ -22,4 +22,4 @@ const HomeDone = ({}) => {
   );
 };
 
-export default HomeDone;
+export default React.memo(HomeDone);

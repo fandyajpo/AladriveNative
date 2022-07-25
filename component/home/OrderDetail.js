@@ -96,4 +96,4 @@ const OrderDetail = () => {
   );
 };
 
-export default OrderDetail;
+export default React.memo(OrderDetail);

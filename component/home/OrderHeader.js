@@ -36,4 +36,4 @@ const OrderHeader = () => {
   );
 };
 
-export default OrderHeader;
+export default React.memo(OrderHeader);

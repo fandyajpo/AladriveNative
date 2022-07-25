@@ -13,6 +13,7 @@ import {
   InputPinOutlet,
   PickUp,
   OrderSampai,
+  OrderDetail,
 } from "../../../component/home/BottomSheet";
 const Pengantaran = ({ componentId }) => {
   useDeviceContext(tw);
@@ -38,6 +39,7 @@ const Pengantaran = ({ componentId }) => {
       <InputPinOutlet id={"inputPinOutlet"} />
       <PickUp id={"pickUp"} />
       <OrderSampai id={"orderSampai"} />
+      <OrderDetail id={"orderDetail"} />
     </View>
   );
 };

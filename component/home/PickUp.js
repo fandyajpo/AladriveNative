@@ -32,4 +32,4 @@ const PickUp = ({ componentId, setTerimaOrder }) => {
   );
 };
 
-export default PickUp;
+export default React.memo(PickUp);

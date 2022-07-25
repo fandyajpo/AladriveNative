@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import tw from "../../lib/tailwind";
+import tw from "../../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
 
 import ActionSheet, {
@@ -8,7 +8,7 @@ import ActionSheet, {
   registerSheet,
 } from "react-native-actions-sheet";
 
-import { GlobalContext } from "../../lib/ctx";
+import { GlobalContext } from "../../../lib/ctx";
 
 const AcceptOrRefuse = ({ componentId, setTerimaOrder }) => {
   useDeviceContext(tw);
@@ -57,4 +57,4 @@ const AcceptOrRefuse = ({ componentId, setTerimaOrder }) => {
   );
 };
 
-export default AcceptOrRefuse;
+export default React.memo(AcceptOrRefuse);

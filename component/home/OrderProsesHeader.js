@@ -43,4 +43,4 @@ const OrderProsesHeader = () => {
   );
 };
 
-export default OrderProsesHeader;
+export default React.memo(OrderProsesHeader);
