@@ -44,7 +44,7 @@ const OrderProsesPage = ({ componentId }) => {
         ref={prosesRef}
         style={styles.pagerView}
         initialPage={0}
-        // scrollEnabled={false}
+        scrollEnabled={false}
       >
         <View>
           <OrderDetail />

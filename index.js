@@ -21,6 +21,7 @@ import CameraScreen from "./screens/Camera";
 
 //AUTH GROUP SCREEN
 import OtpScreen from "./screens/Auth/Otp";
+import OtpResetPin from "./screens/Profile/OtpResetPin";
 import ConfirmPinScreen from "./screens/Auth/ConfirmPin";
 import DaftarUserScreen from "./screens/Auth/Daftar";
 
@@ -55,6 +56,85 @@ import InputOutletPinScreen from "./screens/Pengantaran/InputOutletPin";
 import UbahRekeningScreen from "./screens/Profile/Partner/UbahRekening";
 import PinScreen from "./screens/Profile/Pin";
 import ProsesVerif from "./screens/Profile/ProsesVerif";
+
+import MasukkanPinOtp from "./screens/Profile/MasukkanPinOtp";
+import ResetPin from "./screens/Profile/ResetPin";
+import UpdatePin from "./screens/Profile/UpdatePin";
+import PilihBank from "./screens/Profile/PilihBank";
+import TarikSaldo from "./screens/Profile/TarikSaldo";
+
+import InHouseProfile from "./screens/Profile/InHouse/UserProfile";
+import DetailOutlet from "./screens/Profile/InHouse/DetailOutlet";
+
+Navigation.registerComponent(
+  "DetailOutlet",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <DetailOutlet {...props} />
+      </GlobalProvider>
+    ),
+  () => DetailOutlet
+);
+
+Navigation.registerComponent(
+  "TarikSaldo",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <TarikSaldo {...props} />
+      </GlobalProvider>
+    ),
+  () => TarikSaldo
+);
+
+Navigation.registerComponent(
+  "PilihBank",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <PilihBank {...props} />
+      </GlobalProvider>
+    ),
+  () => PilihBank
+);
+
+Navigation.registerComponent(
+  "UpdatePin",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <UpdatePin {...props} />
+      </GlobalProvider>
+    ),
+  () => UpdatePin
+);
+
+Navigation.registerComponent(
+  "ResetPin",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <ResetPin {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => ResetPin
+);
+
+Navigation.registerComponent(
+  "MasukkanPinOtp",
+  () => (props) =>
+    (
+      // <SheetProvider>
+      <GlobalProvider>
+        <MasukkanPinOtp {...props} />
+      </GlobalProvider>
+      // </SheetProvider>
+    ),
+  () => MasukkanPinOtp
+);
 
 Navigation.registerComponent(
   "ProsesVerif",
@@ -174,6 +254,19 @@ Navigation.registerComponent(
 );
 
 Navigation.registerComponent(
+  "OtpResetPin",
+  () => (props) =>
+    (
+      <SheetProvider>
+        <GlobalProvider>
+          <OtpResetPin {...props} />
+        </GlobalProvider>
+      </SheetProvider>
+    ),
+  () => OtpResetPin
+);
+
+Navigation.registerComponent(
   "Enter",
   () => (props) =>
     (
@@ -206,6 +299,16 @@ Navigation.registerComponent(
   () => LoginScreen
 );
 
+Navigation.registerComponent(
+  "InHouseProfile",
+  () => (props) =>
+    (
+      <GlobalProvider>
+        <InHouseProfile {...props} />
+      </GlobalProvider>
+    ),
+  () => InHouseProfile
+);
 Navigation.registerComponent(
   "Profile",
   () => (props) =>
@@ -524,7 +627,7 @@ const inHouseRoot = {
           stack: {
             children: [
               {
-                component: { name: "Profile", id: "PROFILE_SCREEN" },
+                component: { name: "InHouseProfile", id: "PROFILE_SCREEN" },
               },
             ],
             options: {
@@ -621,5 +724,5 @@ function isLoggedIn(vals) {
 }
 
 Navigation.events().registerAppLaunchedListener(() => {
-  Navigation.setRoot(partnerRoot);
+  Navigation.setRoot(inHouseRoot);
 });

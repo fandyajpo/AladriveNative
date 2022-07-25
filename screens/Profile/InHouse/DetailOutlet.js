@@ -2,28 +2,30 @@ import React from "react";
 import { View, ScrollView } from "react-native";
 import tw from "../../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
-import { BackHandlerSaldo } from "../../../component/profile/BackHandler";
-import BannerSaldo from "../../../component/profile/BannerSaldo";
-import RekeningPenarikan from "../../../component/profile/RekeningPenarikan";
+import Header from "../../../component/partnerProfile/outlet/Header";
+import Rating from "../../../component/partnerProfile/outlet/Rating";
+import Detail from "../../../component/partnerProfile/outlet/Detail";
+import { BackHandlerDetailOutlet } from "../../../component/profile/BackHandler";
 
-const Saldo = ({ componentId }) => {
+const DetailOutlet = ({ componentId }) => {
   useDeviceContext(tw);
   return (
     <View style={tw`bg-white w-full h-full`}>
-      <View style={tw`absolute w-full`}>
-        <BannerSaldo componentId={componentId} />
+      <View style={tw`absolute top-0 z-10 w-full`}>
+        <Header />
       </View>
-      <ScrollView contentContainerStyle={tw`pt-50 px-2`}>
-        <View>
-          <RekeningPenarikan componentId={componentId} />
-        </View>
+      <View style={tw`p-2 absolute w-full top-36 sm:top-44 z-10`}>
+        <Rating componentId={componentId} />
+      </View>
+      <ScrollView contentContainerStyle={tw`pt-54 sm:pt-62 pb-28 sm:pb-32 `}>
+        <Detail />
       </ScrollView>
-      <BackHandlerSaldo componentId={componentId} />
+      <BackHandlerDetailOutlet componentId={componentId} />
     </View>
   );
 };
 
-Saldo.options = {
+DetailOutlet.options = {
   bottomTabs: {
     visible: false,
     drawBehind: false,
@@ -38,7 +40,7 @@ Saldo.options = {
   statusBar: {
     drawBehind: true,
     translucent: true,
-    style: "light",
+    style: "dark",
     backgroundColor: "transparent",
   },
   animations: {
@@ -76,4 +78,4 @@ Saldo.options = {
   },
 };
 
-export default Saldo;
+export default DetailOutlet;

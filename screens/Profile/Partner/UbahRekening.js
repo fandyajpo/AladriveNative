@@ -3,6 +3,7 @@ import { View, Text, ScrollView, Pressable, TextInput } from "react-native";
 import tw from "../../../lib/tailwind";
 import { useDeviceContext } from "twrnc";
 import { RightDropdown, TandaI } from "../../../lib/listSvg";
+import { PushRoute } from "../../../lib/ctx";
 import { BackHandlerUbahRekening } from "../../../component/profile/BackHandler";
 const UbahRekening = ({ componentId }) => {
   useDeviceContext(tw);
@@ -31,7 +32,7 @@ const UbahRekening = ({ componentId }) => {
             <Text style={tw`text-gray-800 font-bold text-sm mb-2`}>Bank</Text>
 
             <Pressable
-              //   onPress={() => PushRoute(componentId, "UpdateOutletCategory")}
+              onPress={() => PushRoute(componentId, "PilihBank")}
               style={tw`flex-row items-center justify-between border border-gray-300 p-3 rounded-md`}
             >
               <View style={tw`flex-row items-center`}>

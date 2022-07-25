@@ -1,10 +1,19 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { TextInput } from "react-native-gesture-handler";
 import tw from "../../lib/tailwind";
 import { ForgotPin } from "../../lib/listSvg";
+import { PushRoute } from "../../lib/ctx";
 import { BackHandlerKonfirmPin } from "../../component/profile/BackHandler";
 const Pin = ({ componentId }) => {
+  const goToResetPin = React.useCallback(() => {
+    PushRoute(componentId, "OtpResetPin");
+  });
+
+  const goToProsesVerif = React.useCallback(() => {
+    PushRoute(componentId, "ProsesVerif");
+  });
+
   return (
     <View style={tw`w-full h-full bg-white`}>
       <View style={tw`flex-col items-center justify-center mt-13`}>
@@ -24,9 +33,14 @@ const Pin = ({ componentId }) => {
         </View>
         <TextInput keyboardType="number-pad" autoFocus />
 
-        <ForgotPin />
+        <Pressable onPress={goToResetPin}>
+          <ForgotPin />
+        </Pressable>
       </View>
-      <BackHandlerKonfirmPin componentId={componentId} />
+      <BackHandlerKonfirmPin
+        componentId={componentId}
+        action={goToProsesVerif}
+      />
     </View>
   );
 };

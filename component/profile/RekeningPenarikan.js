@@ -21,6 +21,10 @@ const RekeningPenarikan = ({ componentId }) => {
     PushRoute(componentId, "UbahRekening");
   });
 
+  const goToUbahPin = React.useCallback(() => {
+    PushRoute(componentId, "UpdatePin");
+  });
+
   return (
     <View>
       <View
@@ -45,12 +49,12 @@ const RekeningPenarikan = ({ componentId }) => {
       <View
         style={tw`w-full bg-white rounded-xl border border-gray-300 p-2 flex-col items-center`}
       >
-        <View style={tw`w-full flex-row`}>
+        <Pressable onPress={goToUbahPin} style={tw`w-full flex-row`}>
           <UbahPin />
           <View style={[{ flex: 1 }, tw`w-full h-full ml-2`]}>
             <Text style={tw`font-bold text-lg text-gray-800`}>Ubah Pin</Text>
           </View>
-        </View>
+        </Pressable>
       </View>
 
       <View style={tw`w-full flex-row my-4`}>
